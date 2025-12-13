@@ -1,0 +1,14 @@
+<div class="image-wrapper">
+    <input type="file"
+    accept="image/*"
+    (change)="onFileChange($event)"
+    hidden
+    #fileInput>
+    
+    <div  (click)="fileInput.click()" class="image-box">
+     <span>Upload</span>
+     <div  class="image-container" *ngIf="image ">
+       <img [src]="image"  alt="">
+     </div>
+    </div>
+</div>
