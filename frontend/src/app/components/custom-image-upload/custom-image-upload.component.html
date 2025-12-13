@@ -6,9 +6,10 @@
     #fileInput>
     
     <div  (click)="fileInput.click()" class="image-box">
-     <span>Upload</span>
-     <div  class="image-container" *ngIf="image ">
-       <img [src]="image"  alt="">
+     <span *ngIf="!loading && !image">Upload</span>
+     <div class="loading" *ngIf="loading"></div>
+     <div  class="image-container">
+       <img *ngIf="image" [src]="image"  alt="">
      </div>
     </div>
 </div>

@@ -1,18 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-custom-image-upload',
+  selector: 'app-custom-image-upload-object',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './custom-image-upload.component.html',
-  styleUrl: './custom-image-upload.component.css'
+  templateUrl: './custom-image-upload-object.component.html',
+  styleUrl: './custom-image-upload-object.component.css'
 })
-export class CustomImageUploadComponent {
+export class CustomImageUploadObjectComponent {
  image: any = null;
  selectedFile: File | null = null;
- loading: boolean = false;
  fileSize : any;
  onFileChange(event: any){
   const file = event.target.files[0] as File | null;
@@ -20,14 +18,9 @@ export class CustomImageUploadComponent {
     this.selectedFile = file;
     this.fileSize = (Math.round((file.size /1024)));
     const reader = new FileReader();
-    this.loading = true;
     reader.onload = (e: any) => {
       this.image = e.target?.result as string;
       console.log("type blob", this.selectedFile)
-      this.loading = false;
-    }
-    reader.onerror = (e) => {
-      this.loading = false;
     }
      reader.readAsDataURL(file);
   }
