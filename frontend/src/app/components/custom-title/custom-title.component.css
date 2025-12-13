@@ -27,3 +27,24 @@ h1 {
     border: 1px solid #bd50c773;
     box-shadow: 0px 0px 2px #bd50c773;
 }
+
+
+.custom-button-add{
+    padding: 7px 26px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 0px 0px 2px #bd50c773;
+    background: linear-gradient(135deg, #41B3A2, #01D28E);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.custom-button-add:hover{
+    background: white;
+    color: #01D28E;
+    transform: translateY(-4px);
+    border: 1px solid #01D28E;
+    box-shadow: 0px 0px 2px #01D28E;
+}
