@@ -5,11 +5,12 @@ import { CustomTitleComponent } from "./components/custom-title/custom-title.com
 import { CustomItemComponent } from "./components/custom-item/custom-item.component";
 import { CustomImageUploadComponent } from "./components/custom-image-upload/custom-image-upload.component";
 import { CustomImageUploadObjectComponent } from "./components/custom-image-upload-object/custom-image-upload-object.component";
+import { CustomTextareaComponent } from "./components/custom-textarea/custom-textarea.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CustomInputComponent, CustomTitleComponent, CustomItemComponent, CustomImageUploadComponent, CustomImageUploadObjectComponent],
+  imports: [RouterOutlet, CustomInputComponent, CustomTitleComponent, CustomItemComponent, CustomImageUploadComponent, CustomImageUploadObjectComponent, CustomTextareaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
