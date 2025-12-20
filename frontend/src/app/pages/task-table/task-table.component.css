@@ -1,0 +1,119 @@
+.container {
+  border-radius: 6px;
+  box-shadow: 0 1px 2px #00000063;
+  max-width: 1200px;
+  width: 100%;
+  overflow: hidden;
+  text-align: left;
+  background-color: white;
+  font-family: monospace;
+}
+img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+img:hover{
+    transform: scale(1.1);
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: linear-gradient(90deg, #92487A, #540863);
+}
+
+thead tr td {
+    padding: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    font-size: 12px;
+}
+
+tbody tr{
+    border-bottom: 1px solid #80808059;
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+    transform: scale(1.01);
+    background: linear-gradient(90deg, #F2F2F2, white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+tbody td {
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+}
+
+.done{
+    padding: 4px 8px;
+    background-color: #30cf30;
+    color: white;
+    border-radius: 7px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-family: monospace;
+}
+
+.canceled{
+    padding: 4px 8px;
+    background-color: #cf303d;
+    color: white;
+    border-radius: 7px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-family: monospace;
+}
+.pending{
+    padding: 4px 8px;
+    background-color: #ebc831;
+    color: white;
+    border-radius: 7px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-family: monospace;
+}
+
+button:first-of-type{
+    padding: 2px 12px;
+    border: none;
+    background: #FFE52A;
+    border-radius: 4px;
+    color: white;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+button:last-of-type{
+    padding: 2px 12px;
+    border: none;
+    background: #D34E4E;
+    border-radius: 4px;
+    color: white;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
