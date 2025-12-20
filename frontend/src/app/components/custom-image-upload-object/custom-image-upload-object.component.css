@@ -1,5 +1,4 @@
 .image-wrapper {
-    width: 140px;
     background: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
@@ -13,12 +12,12 @@ span {
     font-size: 15px;
     line-height: 1.5;
     font-family: monospace;
-    color: #991099;
+    color: #59AC77;
     letter-spacing: 0.5px;
 }
 
 .image-container{
-    height: 100px;
+    height: 246px;
     padding: 4px;
     background-color: #e6e6e69c;
     border-radius: 14px;
@@ -31,6 +30,8 @@ span {
     height: 100%;
     object-fit: cover;
     border-radius: 14px;
+    object-position: center;
+
 }
 
 @keyframes fadeIn {

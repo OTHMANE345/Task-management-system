@@ -1,0 +1,8 @@
+<div class="container">
+    <app-custom-title [title]="'Login'"></app-custom-title>
+    <form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <app-custom-input [label]="'Email'" [type]="'text'" [placeholder]="'Please Enter Your Email'" [control]="getControl('email')"></app-custom-input>
+        <app-custom-input [label]="'Password'" [type]="'password'" [placeholder]="'Please Enter Your Password'" [control]="getControl('password')"></app-custom-input>
+        <button class="custom-button">Login</button>
+    </form>
+</div>

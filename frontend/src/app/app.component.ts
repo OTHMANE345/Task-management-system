@@ -6,11 +6,18 @@ import { CustomItemComponent } from "./components/custom-item/custom-item.compon
 import { CustomImageUploadComponent } from "./components/custom-image-upload/custom-image-upload.component";
 import { CustomImageUploadObjectComponent } from "./components/custom-image-upload-object/custom-image-upload-object.component";
 import { CustomTextareaComponent } from "./components/custom-textarea/custom-textarea.component";
+import { TaskTableComponent } from "./pages/task-table/task-table.component";
+import { TaskDetailsComponent } from "./pages/task-details/task-details.component";
+import { UserTableComponent } from "./pages/user-table/user-table.component";
+import { TasksComponent } from "./pages/tasks/tasks.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { SignupComponent } from "./pages/signup/signup.component";
+import { AddTaskComponent } from "./pages/add-task/add-task.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CustomInputComponent, CustomTitleComponent, CustomItemComponent, CustomImageUploadComponent, CustomImageUploadObjectComponent, CustomTextareaComponent],
+  imports: [RouterOutlet, CustomInputComponent, CustomTitleComponent, CustomItemComponent, CustomImageUploadComponent, CustomImageUploadObjectComponent, CustomTextareaComponent, TaskTableComponent, TaskDetailsComponent, UserTableComponent, TasksComponent, LoginComponent, SignupComponent, AddTaskComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

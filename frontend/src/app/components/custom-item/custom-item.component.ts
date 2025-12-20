@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-custom-item',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './custom-item.component.css'
 })
 export class CustomItemComponent {
-
+@Input() task : any;
 }

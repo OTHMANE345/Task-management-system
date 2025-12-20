@@ -1,0 +1,6 @@
+<div class="select-container">
+    <label [style.color]="isGray ? 'gray' : 'white' " for="">{{label}}</label> 
+    <select  [formControl]="control">
+    <option *ngFor="let option of options " [value]="option">{{ option }}</option>
+</select>
+</div>
