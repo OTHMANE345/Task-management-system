@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './custom-title.component.css'
 })
 export class CustomTitleComponent {
+@Input() isNotWhite : boolean = false;
 @Input() title : string = 'test title';
 }
