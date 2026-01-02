@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-custom-image-upload-object',
@@ -10,8 +10,9 @@ import { Component } from '@angular/core';
 })
 export class CustomImageUploadObjectComponent {
  image: any = null;
- selectedFile: File | null = null;
+ selectedFile: any;
  fileSize : any;
+ @Output() onFileSelected: EventEmitter<File> = new EventEmitter<File>();
  onFileChange(event: any){
   const file = event.target.files[0] as File | null;
   if(file && file.type.startsWith('image/')){
@@ -20,6 +21,8 @@ export class CustomImageUploadObjectComponent {
     const reader = new FileReader();
     reader.onload = (e: any) => {
       this.image = e.target?.result as string;
+      console.log("image data url", this.image)
+      this.onFileSelected.emit(this.image);
       console.log("type blob", this.selectedFile)
     }
      reader.readAsDataURL(file);
