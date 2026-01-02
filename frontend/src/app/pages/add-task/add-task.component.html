@@ -1,7 +1,7 @@
 <div class="container">
     <app-custom-title [title]="'Add A New Task'"></app-custom-title>
     <form action="" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-        <app-custom-image-upload-object></app-custom-image-upload-object>
+        <app-custom-image-upload-object (onFileSelected)="handleOnFileSelect($event)"></app-custom-image-upload-object>
         <app-custom-input [label]="'name'" [type]="'text'" [placeholder]="'name'" [control]="getControl('name')" [isGray]="true"></app-custom-input>
         <app-custom-input [label]="'duration'" [type]="'number'" [placeholder]="'Duration'" [control]="getControl('duration')" [isGray]="true"></app-custom-input>
         <app-custom-select [label]="'priority'" [control]="getControl('priority')" [options]="options" [label]="'Select an option'" [isGray]="true"></app-custom-select>

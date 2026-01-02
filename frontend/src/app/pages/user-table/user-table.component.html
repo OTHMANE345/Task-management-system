@@ -2,15 +2,22 @@
     <table>
         <thead>
             <tr>
-                <td>Image</td>
+                <!-- <td>Image</td> -->
                 <td>UserName</td>
                 <td>Email</td>
                 <td>Phone</td>
-                <td>Actions</td>
+                <!-- <td>Actions</td> -->
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let user of users">
+                <!-- <td><img src="../../../assets/images/pexels-josh-hild-1270765-34685137.jpg" alt="Task Image"></td> -->
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.contactNumber}}</td>
+                <!-- <td><button>Edit</button> <button>Delete</button></td> -->
+            </tr>
+            <!-- <tr>
                 <td><img src="../../../assets/images/pexels-josh-hild-1270765-34685137.jpg" alt="Task Image"></td>
                 <td>John</td>
                 <td>Johngmail.com</td>
@@ -30,14 +37,7 @@
                 <td>Johngmail.com</td>
                 <td>00000000</td>
                 <td><button>Edit</button> <button>Delete</button></td>
-            </tr>
-            <tr>
-                <td><img src="../../../assets/images/pexels-josh-hild-1270765-34685137.jpg" alt="Task Image"></td>
-                <td>John</td>
-                <td>Johngmail.com</td>
-                <td>00000000</td>
-                <td><button>Edit</button> <button>Delete</button></td>
-            </tr>
+            </tr> -->
              
         </tbody>
     </table>

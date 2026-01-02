@@ -17,13 +17,15 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, CustomInputComponent, CustomTitleComponent, CustomItemComponent, CustomImageUploadComponent, CustomImageUploadObjectComponent, CustomTextareaComponent, TaskTableComponent, TaskDetailsComponent, UserTableComponent, TasksComponent, LoginComponent, SignupComponent, AddTaskComponent, SidebarComponent, NavbarComponent, FooterComponent, ProfileComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  
 })
 export class AppComponent {
   title = 'frontend';

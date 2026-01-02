@@ -20,26 +20,32 @@
 
     <div class="container">
       <h1>task details</h1>
-      <img src="../../../assets/images/pexels-josh-hild-1270765-34685137.jpg" alt="">
+      <img src="{{task.image}}" alt="">
       <div class="data-info">
-        <span class="duration">12h</span>
-        <span class="status"></span>
+        <span class="duration">{{task.duration}}</span>
+        <span [class]="task.status">{{task.status}}</span>
         <div class="select-info">
           <label for="">Priority</label>
-          <select name="" id="">
-            <option value="">12</option>
+          <span>{{task.priority}}</span>
+        </div>
+
+      <form [formGroup]="updatetaskForm">
+          <div class="select-info">
+          <label for="">Status</label>
+          <select name="" id="" formControlName="status">
+            <option value="Done">Done</option>
+            <option value="Pending">Pending</option>
+            <option value="NotYet">Not Yet</option>
           </select>
         </div>
 
-        <div class="select-info">
-          <label for="">Status</label>
-          <select name="" id="">
-            <option value="">Done</option>
-          </select>
-        </div>
+        <button (click)="updateStatus()" type="submit" class="custom-button">
+          save
+        </button>
+      </form>
       </div>
 
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium laborum animi quos possimus deserunt error, veniam repellendus, assumenda eius placeat culpa! Corrupti quam eius vitae cumque corporis, maiores doloribus ipsa!
+        {{task.description}}
       </p>
     </div>

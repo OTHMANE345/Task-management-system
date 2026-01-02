@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CustomItemComponent } from "../../components/custom-item/custom-item.component";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -12,41 +13,19 @@ import { CommonModule } from '@angular/common';
 })
 export class TasksComponent {
 
+  constructor(private taskService: TaskService) { }
   tasks: any[] = [];
 
   ngOnInit(){
-    this.tasks = [
-      {
-        id: 1,
-        duration: "22h",
-        title: "Task One",
-        description: "This is the description for task one."
-      },
-      {
-        id: 2,
-        duration: "10h",
-        title: "Task Two",
-        description: "This is the description for task two."
-      },
-      {
-        id: 3,
-        duration: "10h",
-        title: "Task Two",
-        description: "This is the description for task two."
-      },
-        {
-        id: 4,
-        duration: "10h",
-        title: "Task Two",
-        description: "This is the description for task two."
-      },
-      {
-        id: 5,
-        duration: "10h",
-        title: "Task Two",
-        description: "This is the description for task two."
+    this.taskService.getTasks().subscribe({
+      next: (res) => {
+       this.tasks = res.data;
+      }, 
+      error : (err) => {
+        console.error('Error fetching tasks', err);
       }
-    ]
+    }
+    ) 
   }
 
 }

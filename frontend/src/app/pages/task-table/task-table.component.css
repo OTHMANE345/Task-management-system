@@ -1,8 +1,9 @@
 .container {
+  margin: 40px 5px;
   border-radius: 6px;
   box-shadow: 0 1px 2px #00000063;
   max-width: 1200px;
-  width: 100%;
+  width: 97%;
   overflow: hidden;
   text-align: left;
   background-color: white;
@@ -56,7 +57,7 @@ tbody td {
     color: #666;
 }
 
-.done{
+.Done{
     padding: 4px 8px;
     background-color: #30cf30;
     color: white;
@@ -75,7 +76,7 @@ tbody td {
     letter-spacing: 1px;
     font-family: monospace;
 }
-.pending{
+.Pending{
     padding: 4px 8px;
     background-color: #ebc831;
     color: white;

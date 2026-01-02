@@ -2,17 +2,17 @@
 
 <div class="item-container">
 <div class="image-wrapper">
-  <img src="../../../assets/images/pexels-josh-hild-1270765-34685137.jpg" alt="">
+  <img src="{{ task.image }}" alt="">
   <div class="time-badge">
     {{ task.duration}} 
   </div>
 </div>
 <div class="item-info">
-  <h2>{{task.title}}</h2>
+  <h2>{{task.name}}</h2>
   <p class="description">{{task.description}}</p>
 </div>
 <div class="button-container">
-  <button class="button-view">
+  <button class="button-view" (click)="showDetail()">
     View detail
   </button>
 </div>

@@ -3,6 +3,7 @@ import { CustomInputComponent } from "../../components/custom-input/custom-input
 import { CustomTitleComponent } from "../../components/custom-title/custom-title.component";
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent {
     password: ['']
   })
 
-  constructor(private readonly router: Router) {}
+  constructor(private readonly router: Router, private userService: UserService) {}
 
   getControl(name: string){
     return this.loginForm.get(name) as FormControl;
@@ -29,7 +30,19 @@ export class LoginComponent {
     console.log("login data", this.loginForm.value);
     const email = this.loginForm.value.email as string;
     const password = this.loginForm.value.password as string;
+    this.userService.login(email, password).subscribe({
+      next: (res) => {
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('role', res.user.role);
+        this.router.navigate(['/layout/tasks']);
+      },
+      error : (err) => {
+        console.error('Login failed', err);
+      }
+  });
   }
 
  
 }
+
+

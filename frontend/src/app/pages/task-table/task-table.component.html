@@ -6,20 +6,20 @@
                 <td>title</td>
                 <td>Duration</td>
                 <td>Status</td>
-                <td>User</td>
-                <td>Actions</td>
+                <td>User Id</td>
+                <!-- <td>Actions</td> -->
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let task of tasks">
                 <td><img src="../../../assets/images/pexels-josh-hild-1270765-34685137.jpg" alt="Task Image"></td>
-                <td>Task Name</td>
-                <td>12h</td>
-                <td><span class="done">Done</span></td>
-                <td>Said</td>
-                <td><button>Edit</button> <button>Delete</button></td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.duration }}</td>
+                <td><span [class]="task.status">{{ task.status }}</span></td>
+                <td>{{task.userId}}</td>
+                <!-- <td><button>Edit</button> <button>Delete</button></td> -->
             </tr>
-              <tr>
+              <!-- <tr>
                 <td><img src="../../../assets/images/pexels-josh-hild-1270765-34685137.jpg" alt="Task Image"></td>
                 <td>Task Name</td>
                 <td>12h</td>
@@ -34,7 +34,7 @@
                 <td><span class="canceled">Canceled</span></td>
                 <td>Said</td>
                 <td><button>Edit</button> <button>Delete</button></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
 </div>

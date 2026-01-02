@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-custom-item',
@@ -9,4 +10,14 @@ import { Component, Input } from '@angular/core';
 })
 export class CustomItemComponent {
 @Input() task : any;
+
+constructor(private router: Router){}
+
+getImageUrl(image: any){
+  URL.createObjectURL(image);
+}
+showDetail(){
+  this.router.navigate(['/layout/task', this.task.id]);
+}
+
 }

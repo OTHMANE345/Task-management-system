@@ -235,3 +235,60 @@ p {
     color: #494444;
 }
 
+.Done {
+    padding: 8px 20px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #b9efd1;
+    border-radius: 6px;
+    background-color: #b9efd1;
+    color: #0c950c;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+
+.NotYet {
+    padding: 8px 20px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #f77c17;
+    border-radius: 6px;
+    background-color: #f77c17;
+    color: #ff0000;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.Pending {
+    padding: 8px 20px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #c99870;
+    border-radius: 6px;
+    background-color: #c99870;
+    color: #a04a04;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.custom-button{
+  margin-left: 12px;
+    padding: 7px 26px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 0px 0px 2px #bd50c773;
+    background: linear-gradient(45deg, #bd50c773, #c097c473);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.custom-button:hover{
+    background: white;
+    color: rgb(211, 80, 211);
+    transform: translateY(-4px);
+    border: 1px solid #bd50c773;
+    box-shadow: 0px 0px 2px #bd50c773;
+}
