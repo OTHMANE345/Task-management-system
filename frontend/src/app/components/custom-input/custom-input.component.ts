@@ -19,4 +19,5 @@ export class CustomInputComponent {
   @Input() type : string = '';
   @Input() placeholder : string = '';
   @Input() control : FormControl = new FormControl();
+  @Input() isGray : boolean = false;
 }
