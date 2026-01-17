@@ -1,19 +1,30 @@
-
-
 <div class="item-container">
-<div class="image-wrapper">
-  <img src="{{ task.image }}" alt="">
-  <div class="time-badge">
-    {{ task.duration}} 
+  <div class="image-wrapper">
+    <img src="{{ task.image }}" alt="" />
+    <div class="time-badge">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+        />
+      </svg>
+
+      {{ task.duration }} 
+    </div>
   </div>
-</div>
-<div class="item-info">
-  <h2>{{task.name}}</h2>
-  <p class="description">{{task.description}}</p>
-</div>
-<div class="button-container">
-  <button class="button-view" (click)="showDetail()">
-    View detail
-  </button>
-</div>
+  <div class="item-info">
+    <h2>{{ task.name }}</h2>
+    <p class="description">{{ task.description | slice:0:20 }}{{task.description.length > 20 ? '...' : ''}}</p> 
+  </div>
+  <div class="button-container">
+    <button class="button-view" (click)="showDetail()">View detail</button>
+  </div>
 </div>
