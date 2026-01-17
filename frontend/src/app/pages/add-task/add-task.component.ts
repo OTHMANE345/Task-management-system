@@ -19,6 +19,7 @@ import { TaskService } from '../../services/task.service';
 export class AddTaskComponent {
 private readonly fb = inject(FormBuilder);
 image!: any;
+isLoading: boolean = false;
 options :any[] = [
   'High',
   'Medium',
@@ -51,13 +52,26 @@ onSubmit(): void {
   const duration = this.taskForm.value.duration as string;
   const priority = this.taskForm.value.priority  ;
   const description = this.taskForm.value.description as string;
+  this.isLoading = true;
   this.taskService.addTask(name, description, priority, 'todo', this.image, duration).subscribe({
     next : (res) => {
+    
     console.log('Task added successfully', res);
     this.router.navigate(['/layout/tasks']);
+    setTimeout(() => {
+        this.isLoading = false;
+      }, 500)
     },
     error : (err) => {
       console.error('Error adding task', err);
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 500)
+    }, 
+    complete: () => {
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 500)
     }
   })
 }

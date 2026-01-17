@@ -13,6 +13,7 @@
     font-size: 20px;
     font-weight: 700;
     color: white;
+    margin-left: 12px;
 }
 
 .navbar-items{
@@ -22,16 +23,20 @@
     align-items: center;
 }
 
-a {
+span {
     text-decoration: none;
-    color: white;
+    color: #fff;
+    letter-spacing: 1px;
+    line-height: 1.5;
     font-family: monospace;
-    font-size: 12px;
+    font-size: 14px;
     padding: 6px 16px;
-    animation: all 0.3s ease-in-out;
+    cursor: pointer;
+    font-weight: 800;
+    transition: all 0.3s ease-in-out;
 }
 
-a:hover {
+span:hover {
     background-color: #b45c98;
     border-radius: 4px;
 }

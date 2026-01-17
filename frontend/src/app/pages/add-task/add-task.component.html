@@ -6,6 +6,6 @@
         <app-custom-input [label]="'duration'" [type]="'number'" [placeholder]="'Duration'" [control]="getControl('duration')" [isGray]="true"></app-custom-input>
         <app-custom-select [label]="'priority'" [control]="getControl('priority')" [options]="options" [label]="'Select an option'" [isGray]="true"></app-custom-select>
         <app-custom-textarea [control]="getControl('description')"></app-custom-textarea>
-        <button class="custom-button-add">Add A task</button>
+        <button class="custom-button-add" [disabled]="isLoading">{{isLoading ? 'Adding..' : 'Add A task'}}</button>
     </form>
 </div>

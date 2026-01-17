@@ -7,6 +7,7 @@ import { TaskDetailsComponent } from './pages/task-details/task-details.componen
 import { LayoutComponent } from './pages/layout/layout.component';
 import { TaskTableComponent } from './pages/task-table/task-table.component';
 import { UserTableComponent } from './pages/user-table/user-table.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,7 @@ export const routes: Routes = [
   {
     path: 'layout',
     component: LayoutComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: 'tasks',
@@ -36,10 +38,12 @@ export const routes: Routes = [
        {
         path: 'tasksList',
         component: TaskTableComponent,
+        data: {roles: ['admin']}
       },
        {
         path: 'users',
         component: UserTableComponent,
+        data: {roles: ['admin']}
       },
     ],
   },
