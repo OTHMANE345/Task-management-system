@@ -165,12 +165,12 @@ h1 {
     font-weight: 800;
     font-family: monospace;
     text-transform: capitalize;
-    margin-bottom: 30px;
+        margin-bottom: 6px;
 }
 
 img{
     width: 100%;
-    height: 400px;
+    height: 350px;
     border-radius: 12px;
     object-fit: cover;
     box-shadow: 0 1px 7px #000000ad;
@@ -181,15 +181,23 @@ img{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 12px 4px;
+    padding: 10px 4px;
 }
 
 .duration  {
     background: #8080808a;
     border-radius: 5px;
-    padding: 2px 6px;
+    padding: 6px 6px;
     font-weight: 700;
-    color: black;
+    color: rgba(0, 0, 0, 0.945);
+    display: flex;
+    align-items: center;
+}
+
+svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
 }
 
 .select-info {
@@ -252,10 +260,9 @@ p {
     padding: 8px 20px;
     display: inline-flex;
     align-items: center;
-    border: 1px solid #f77c17;
     border-radius: 6px;
-    background-color: #f77c17;
-    color: #ff0000;
+    background-color: #FA5C5C;
+    color: #fff;
     font-weight: 700;
     font-family: monospace;
 }
@@ -264,14 +271,22 @@ p {
     padding: 8px 20px;
     display: inline-flex;
     align-items: center;
-    border: 1px solid #c99870;
     border-radius: 6px;
-    background-color: #c99870;
-    color: #a04a04;
+    background-color: #eeeb29;
+    color: #000000;
     font-weight: 700;
     font-family: monospace;
 }
 
+label {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+button {
+    margin: 0 !important;
+    margin-left: 6px !important;
+}
 .custom-button{
   margin-left: 12px;
     padding: 7px 26px;
@@ -280,14 +295,14 @@ p {
     border-radius: 7px;
     border: none;
     box-shadow: 0px 0px 2px #bd50c773;
-    background: linear-gradient(45deg, #bd50c773, #c097c473);
+    background: linear-gradient(45deg, #bd50c7ef, #a203b1);
     color: white;
     transition: all 0.3s ease;
 }
 
 .custom-button:hover{
     background: white;
-    color: rgb(211, 80, 211);
+    color: #a203b1;
     transform: translateY(-4px);
     border: 1px solid #bd50c773;
     box-shadow: 0px 0px 2px #bd50c773;

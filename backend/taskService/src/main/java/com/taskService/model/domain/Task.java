@@ -27,6 +27,8 @@ public class Task extends BaseEntity {
     private String priority;
     @Column(name="duration")
     private String duration;
+    @Column(name="userEmail")
+    private String email;
     @Lob
     @Column(name="image", columnDefinition = "TEXT")
     private String image;

@@ -2,6 +2,7 @@ package com.taskService.mapper;
 
 
 import com.taskService.dto.TaskDto;
+import com.taskService.dto.TaskDtoForAdmin;
 import com.taskService.model.domain.Task;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,20 @@ public class TaskMapper {
         taskDto.setImage(task.getImage());
         taskDto.setPriority(task.getPriority());
         taskDto.setDuration(task.getDuration());
+        return taskDto;
+    }
+
+    public TaskDtoForAdmin toTaskDtoForAdmin(Task task){
+        TaskDtoForAdmin taskDto = new TaskDtoForAdmin();
+        taskDto.setId(String.valueOf(task.getId()));
+        taskDto.setName(task.getName());
+        taskDto.setDescription(task.getDescription());
+        taskDto.setStatus(task.getStatus());
+        taskDto.setUserID(task.getUserID());
+        taskDto.setImage(task.getImage());
+        taskDto.setPriority(task.getPriority());
+        taskDto.setDuration(task.getDuration());
+        taskDto.setEmail(task.getEmail());
         return taskDto;
     }
 

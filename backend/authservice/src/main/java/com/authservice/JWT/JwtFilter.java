@@ -27,9 +27,6 @@ public class JwtFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;
 
-    Claims claims = null;
-
-    private String userName = null;
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
      if(httpServletRequest.getServletPath().matches("/user/login|/user/singup|/user/validate-token")){
@@ -37,6 +34,8 @@ public class JwtFilter extends OncePerRequestFilter {
      }else{
          String authorizationHeader = httpServletRequest.getHeader("Authorization");
          String token = null;
+         String userName = null;
+         Claims claims = null;
 
          if(authorizationHeader != null && authorizationHeader.startsWith("Bearer ")){
              token = authorizationHeader.substring(7);
@@ -58,14 +57,14 @@ public class JwtFilter extends OncePerRequestFilter {
      }
     }
 
-    public boolean isAdmin(){
-        return "admin".equalsIgnoreCase((String) claims.get("role"));
+    public boolean isAdmin(Claims claims){
+        return claims != null && "admin".equalsIgnoreCase((String) claims.get("role"));
     }
 
-    public boolean isUser(){
-        return "user".equalsIgnoreCase((String) claims.get("role"));
+    public boolean isUser(Claims claims){
+        return claims != null && "user".equalsIgnoreCase((String) claims.get("role"));
     }
-    public String getCurrentUser(){
-        return userName;
-    }
+//    public String getCurrentUser(){
+//        return userName;
+//    }
 }

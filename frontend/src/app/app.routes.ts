@@ -8,11 +8,16 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { TaskTableComponent } from './pages/task-table/task-table.component';
 import { UserTableComponent } from './pages/user-table/user-table.component';
 import { authGuard } from './guards/auth.guard';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'signup',
     component: SignupComponent,
+  },
+   {
+    path: '',
+    component: HomeComponent,
   },
   {
     path: 'login',

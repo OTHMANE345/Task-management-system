@@ -14,7 +14,7 @@ export class TaskTableComponent {
    tasks: any[] = [];
  
    ngOnInit(){
-     this.taskService.getTasks().subscribe({
+     this.taskService.getTasksForAdmin().subscribe({
        next: (res) => {
         this.tasks = res.data;
        }, 

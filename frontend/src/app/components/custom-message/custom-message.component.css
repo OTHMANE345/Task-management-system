@@ -1,0 +1,23 @@
+
+.success {
+   position: absolute;
+    right: 35px;
+    top: 54px;
+    padding: 12px;
+    color: white;
+    background-color: #98d798;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgb(76 150 88 / 35%);
+}
+
+
+.error {
+   position: absolute;
+    right: 35px;
+    top: 54px;
+    padding: 12px 24px;
+    color: white;
+    background-color: #f12e28;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px #d7ba98d0;
+}

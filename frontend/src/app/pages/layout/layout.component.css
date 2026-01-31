@@ -1,10 +1,14 @@
 .content{
     display: grid;
     grid-template-columns: 1fr 5fr;
+    height: 100vh;
+    overflow:hidden;
 }
 
 .main-content{
     flex-shrink: 1;
     flex-grow: 1;
+    height: 100vh;
+    overflow-y: auto;
     
 }

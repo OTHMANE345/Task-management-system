@@ -8,15 +8,20 @@ import { CustomTextareaComponent } from "../../components/custom-textarea/custom
 import { CustomSelectComponent } from "../../components/custom-select/custom-select.component";
 import { Task } from 'zone.js/lib/zone-impl';
 import { TaskService } from '../../services/task.service';
+import { CustomMessageComponent } from "../../components/custom-message/custom-message.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-task',
   standalone: true,
-  imports: [ReactiveFormsModule, CustomTitleComponent, CustomInputComponent, CustomImageUploadObjectComponent, CustomTextareaComponent, CustomSelectComponent],
+  imports: [ReactiveFormsModule, CustomTitleComponent, CustomInputComponent, CustomImageUploadObjectComponent, CustomTextareaComponent, CustomSelectComponent, CustomMessageComponent, CommonModule],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.css'
 })
 export class AddTaskComponent {
+  showMessage: boolean = false;
+  type: string = "success";
+  message: string = "Task added successfully"
 private readonly fb = inject(FormBuilder);
 image!: any;
 isLoading: boolean = false;
@@ -53,20 +58,44 @@ onSubmit(): void {
   const priority = this.taskForm.value.priority  ;
   const description = this.taskForm.value.description as string;
   this.isLoading = true;
-  this.taskService.addTask(name, description, priority, 'todo', this.image, duration).subscribe({
+  this.taskService.addTask(name, description, priority, 'NotYet', this.image, duration).subscribe({
     next : (res) => {
     
     console.log('Task added successfully', res);
-    this.router.navigate(['/layout/tasks']);
     setTimeout(() => {
         this.isLoading = false;
       }, 500)
+      this.showMessage = true
+        setTimeout(
+          () => {
+            this.showMessage = false;
+          }, 2000
+        )
+
+        setTimeout(
+          () => {
+               this.router.navigate(['/layout/tasks']);
+
+          }, 3000
+        )
+
+
+
     },
     error : (err) => {
       console.error('Error adding task', err);
       setTimeout(() => {
         this.isLoading = false;
       }, 500)
+       this.type = "error";
+        this.message = "error";
+        this.showMessage = true
+        setTimeout(
+          () => {
+            this.showMessage = false;
+          }, 2000
+        )
+
     }, 
     complete: () => {
       setTimeout(() => {

@@ -3,6 +3,7 @@ package com.taskService.controller;
 
 import com.taskService.common.response.StandardResponse;
 import com.taskService.dto.TaskDto;
+import com.taskService.dto.TaskDtoForAdmin;
 import com.taskService.services.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +23,11 @@ public class TaskController {
 
     @GetMapping
     public ResponseEntity<StandardResponse<List<TaskDto>>> getAllTasks(@RequestHeader("USER-ID") String userId){
-
-       System.out.println("UserID "+ userId);
-
-    return ResponseEntity.ok(taskService.getAlltasks(userId));
+       return ResponseEntity.ok(taskService.getAlltasks(userId));
     }
 
     @GetMapping("/admin")
-    public ResponseEntity<StandardResponse<List<TaskDto>>> getAllTasksForAdmin(@RequestHeader("USER-ROLE") String role){
-        System.out.println("role : "+ role);
+    public ResponseEntity<StandardResponse<List<TaskDtoForAdmin>>> getAllTasksForAdmin(@RequestHeader("USER-ROLE") String role){
        if(!"admin".equals(role)){
         return ResponseEntity.status(HttpStatus.FORBIDDEN)
                 .body(new StandardResponse<>(null, false, "Access Denied: Admin role required", null, HttpStatus.FORBIDDEN));
@@ -45,18 +42,19 @@ public class TaskController {
     }
 
     @PostMapping()
-    public ResponseEntity<StandardResponse<TaskDto>> addTask(@RequestHeader("USER-ID") String userId, @Valid @RequestBody TaskDto taskDto){
-        System.out.println("User Id"+ userId);
-       return ResponseEntity.ok(taskService.addTask(userId, taskDto));
+    public ResponseEntity<StandardResponse<TaskDto>> addTask(@RequestHeader("USER-ID") String userId, @RequestHeader("EMAIL") String email,  @Valid @RequestBody TaskDto taskDto){
+        StandardResponse<TaskDto> res = taskService.addTask(userId, taskDto, email);
+       return ResponseEntity.status(HttpStatus.CREATED).body(res);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<StandardResponse<TaskDto>> updtedTask(@RequestHeader("USER-ID") String userId,@PathVariable String id, @Valid @RequestBody TaskDto taskDto){
+    public ResponseEntity<StandardResponse<TaskDto>> updateTask(@RequestHeader("USER-ID") String userId,@PathVariable String id, @Valid @RequestBody TaskDto taskDto){
         return ResponseEntity.ok(taskService.updateTask(userId, id, taskDto));
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<StandardResponse<Void>> deleteTask(@RequestHeader("USER-ID") String userId,@PathVariable String id){
-        return ResponseEntity.ok(taskService.deleteTask(userId, id));
+    public ResponseEntity<Void> deleteTask(@RequestHeader("USER-ID") String userId,@PathVariable String id){
+        taskService.deleteTask(userId, id);
+        return ResponseEntity.noContent().build();
     }
 }

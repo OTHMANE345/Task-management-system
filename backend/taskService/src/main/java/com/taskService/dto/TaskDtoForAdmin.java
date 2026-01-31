@@ -1,15 +1,9 @@
 package com.taskService.dto;
 
-
-import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.sql.Blob;
-
-public class TaskDto {
+public class TaskDtoForAdmin {
     private String id;
     @NotBlank(message = "name is required")
     private String name;
@@ -20,6 +14,16 @@ public class TaskDto {
     private String priority;
     private String image;
     private String duration;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
 
 
     public String getDuration() {
@@ -47,7 +51,7 @@ public class TaskDto {
     }
 
 
-    public TaskDto() {
+    public TaskDtoForAdmin() {
     }
 
     public String getName() {
@@ -92,4 +96,3 @@ public class TaskDto {
         this.priority = priority;
     }
 }
-

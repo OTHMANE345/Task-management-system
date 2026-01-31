@@ -44,27 +44,51 @@ public class UserController {
 
     @PostMapping(path = "/validate-token")
     public ResponseEntity<Map<String, String>> validateToken(@RequestBody Map<String, String> requestBody){
-        String token = requestBody.get("token");
-        if(userservice.validateToken(token)){
-            Integer id = jwtUtil.extractUserID(token);
-            String role = jwtUtil.extractUserRole(token);
-            Map<String, String> response = new HashMap<>();
-            response.put("id", id.toString());
-            response.put("role", role);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        } else {
-            Map<String, String> response = new HashMap<>();
-            response.put("error", "Internal server error");
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
+       try {
+           if(requestBody == null || !requestBody.containsKey("token") || requestBody.get("token").trim().isEmpty()){
+               Map<String, String> response = new HashMap<>();
+               response.put("error", "Token is required");
+               return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+           }
+           String token = requestBody.get("token");
+           if(userservice.validateToken(token)){
+               Integer id = jwtUtil.extractUserID(token);
+               String role = jwtUtil.extractUserRole(token);
+               String email = jwtUtil.extractUsername(token);
+               Map<String, String> response = new HashMap<>();
+               response.put("id", id.toString());
+               response.put("role", role);
+               response.put("email", email);
+               return new ResponseEntity<>(response, HttpStatus.OK);
+           } else {
+               Map<String, String> response = new HashMap<>();
+               response.put("error", "Invalid or expired token");
+               return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+           }
+       }catch(Exception ex){
+           Map<String, String> response = new HashMap<>();
+           response.put("error", "Token validation failed");
+           return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+       }
 
     }
 
     @GetMapping("/admin")
-    public ResponseEntity<List<User>> getAllUsers(@RequestHeader("USER-ROLE") String role){
-        if(!"admin".equals(role)){
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-        }
-        return ResponseEntity.ok(userservice.getAllUsers());
+    public ResponseEntity<?> getAllUsers(@RequestHeader("USER-ROLE") String role){
+       try {
+           if(role == null || role.trim().isEmpty()){
+               return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                       .body(Map.of("error", "USER-ROLE header is required"));
+           }
+           if(!"admin".equals(role)){
+               return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("error", "Admin access required"));
+           }
+           List<User> users = userservice.getAllUsers();
+           users.forEach(user -> user.setPassword(null));
+           return ResponseEntity.ok(users);
+       }catch(Exception ex){
+           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                   .body(Map.of("error", "failed to fetch users"));
+       }
     }
 }

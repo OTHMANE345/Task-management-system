@@ -6,6 +6,8 @@
     <div class="navbar-items">
       <span (click)="toTasks()">tasks</span>
       <span (click)="toHome()">Home</span>
-      <button class="custom-button">Register</button>
+      <button class="custom-button" (click)="toRegister()" *ngIf="!token">Register</button>
+            <button class="custom-button" (click)="toLogin()" *ngIf="!token">Login</button>
+
     </div>
 </div>

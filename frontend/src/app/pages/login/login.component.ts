@@ -4,15 +4,20 @@ import { CustomTitleComponent } from "../../components/custom-title/custom-title
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { CustomMessageComponent } from "../../components/custom-message/custom-message.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CustomInputComponent, CustomTitleComponent, ReactiveFormsModule],
+  imports: [CustomInputComponent, CustomTitleComponent, ReactiveFormsModule, CustomMessageComponent, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  showMessage: boolean = false;
+  type: string = "success";
+  message: string = "Login with success"
   private fb = inject(FormBuilder);
 
    loginForm = this.fb.group({
@@ -34,10 +39,32 @@ export class LoginComponent {
       next: (res) => {
         localStorage.setItem('token', res.token);
         localStorage.setItem('role', res.user.role);
-        this.router.navigate(['/layout/tasks']);
+         localStorage.setItem('email', res.user.email);
+        console.log('Login successful', res);
+        
+        this.showMessage = true
+        setTimeout(
+          () => {
+            this.showMessage = false;
+          }, 2000
+        )
+
+        setTimeout(
+          () => {
+            this.router.navigate(['/layout/tasks']);
+          }, 3000
+        )
       },
       error : (err) => {
         console.error('Login failed', err);
+         this.type = "error";
+        this.message = "error";
+        this.showMessage = true
+        setTimeout(
+          () => {
+            this.showMessage = false;
+          }, 2000
+        )
       }
   });
   }

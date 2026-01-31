@@ -9,3 +9,7 @@
         <button class="custom-button-add" [disabled]="isLoading">{{isLoading ? 'Adding..' : 'Add A task'}}</button>
     </form>
 </div>
+
+<div *ngIf="showMessage">
+<app-custom-message [type]="type" [message]="message"></app-custom-message>
+</div>

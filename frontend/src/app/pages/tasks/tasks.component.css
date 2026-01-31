@@ -3,7 +3,6 @@
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     grid-template-rows: repeat(auto-fit, 200px);
     gap: 4px;
-    background: linear-gradient(135deg, #EBF4DD, #E6E6E6);
     padding: 20px;
     min-height: 100vh;
 }

@@ -39,6 +39,7 @@ public class JwtFilter extends AbstractGatewayFilterFactory<JwtFilter.Config> {
                        res -> {
                            ServerHttpRequest mutatedRequest = exchange.getRequest().mutate().header("USER-ID", res.get("id").toString())
                                    .header("USER-ROLE",  res.get("role").toString())
+                                   .header("EMAIL",  res.get("email").toString())
                                    .build();
                            return chain.filter(exchange.mutate().request(mutatedRequest).build());
                        }
