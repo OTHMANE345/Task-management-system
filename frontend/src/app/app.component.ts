@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { CustomInputComponent } from "./components/custom-input/custom-input.component";
 import { CustomTitleComponent } from "./components/custom-title/custom-title.component";
 import { CustomItemComponent } from "./components/custom-item/custom-item.component";
-import { CustomImageUploadComponent } from "./components/custom-image-upload/custom-image-upload.component";
 import { CustomImageUploadObjectComponent } from "./components/custom-image-upload-object/custom-image-upload-object.component";
 import { CustomTextareaComponent } from "./components/custom-textarea/custom-textarea.component";
 import { TaskTableComponent } from "./pages/task-table/task-table.component";
@@ -15,14 +14,12 @@ import { SignupComponent } from "./pages/signup/signup.component";
 import { AddTaskComponent } from "./pages/add-task/add-task.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
-import { FooterComponent } from "./components/footer/footer.component";
-import { ProfileComponent } from "./pages/profile/profile.component";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CustomInputComponent, CustomTitleComponent, CustomItemComponent, CustomImageUploadComponent, CustomImageUploadObjectComponent, CustomTextareaComponent, TaskTableComponent, TaskDetailsComponent, UserTableComponent, TasksComponent, LoginComponent, SignupComponent, AddTaskComponent, SidebarComponent, NavbarComponent, FooterComponent, ProfileComponent],
+  imports: [RouterOutlet, CustomInputComponent, CustomTitleComponent, CustomItemComponent, CustomImageUploadObjectComponent, CustomTextareaComponent, TaskTableComponent, TaskDetailsComponent, UserTableComponent, TasksComponent, LoginComponent, SignupComponent, AddTaskComponent, SidebarComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   

@@ -44,7 +44,6 @@ public <T> T extractClaims(String token, Function<Claims, T> claimsResolver){
 }
 
     private SecretKey getSignInKey() {
-        // byte[] keyBytes = secret.getBytes(StandardCharsets.UTF_8);
         byte[] keyBytes = Base64.getDecoder().decode(
                 secret.getBytes(StandardCharsets.UTF_8)
         );

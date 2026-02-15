@@ -35,10 +35,6 @@ public class TaskService {
         List<TaskDto> tasks =  taskRepository.findAll().stream().filter(
                 task -> userId.equals(task.getUserID())
         ).map(taskMapper::toTaskDto).toList();
-//        tasksDb.stream().map(e -> e.getUserID().equals(userId));
-//        List<TaskDto> tasks = new ArrayList<>();
-//        for (Task t : tasksDb)
-//                tasks.add(taskMapper.toTaskDto(t));
             return new StandardResponse<>(tasks, true, "Data fetched succefully", null, HttpStatus.OK);
 
     }
@@ -59,7 +55,6 @@ public class TaskService {
 
     public  StandardResponse<TaskDto> addTask(String userId, TaskDto taskDto, String email) {
         Task task = taskMapper.toTaskEntity(taskDto);
-//        System.out.println("user Id in add"+ userId);
         task.setUserID(userId);
         task.setEmail(email);
         Task savedTask = taskRepository.save(task);

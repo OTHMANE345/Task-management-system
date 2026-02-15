@@ -34,7 +34,6 @@ return new BCryptPasswordEncoder(12);
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
         return authenticationConfiguration.getAuthenticationManager();
     }
-//                .exceptionHandling(exception -> exception.authenticationEntryPoint((request, response, authException) -> ) )
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
