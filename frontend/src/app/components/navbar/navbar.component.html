@@ -1,13 +1,11 @@
 <div class="navbar-container">
-    <span class="navbar-title">
-        Task System
-    </span>
-
-    <div class="navbar-items">
-      <span (click)="toTasks()">tasks</span>
-      <span (click)="toHome()">Home</span>
+  <span class="navbar-title">Task System</span>
+  <div class="navbar-items">
+    <span (click)="toTasks()">Tasks</span>
+    <span (click)="toHome()">Home</span>
+    <div class="btn-group">
       <button class="custom-button" (click)="toRegister()" *ngIf="!token">Register</button>
-            <button class="custom-button" (click)="toLogin()" *ngIf="!token">Login</button>
-
+      <button class="custom-button btn-primary" (click)="toLogin()" *ngIf="!token">Login</button>
     </div>
+  </div>
 </div>
