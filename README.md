@@ -123,32 +123,6 @@ task-system/
 2. **Configure API endpoints** (if needed):
    - Update service URLs in `src/app/services/`
 
-## 📸 Screenshots
-
-### Page 1 - Dashboard
-![Task Management Dashboard](img/page_1.png)
-Overview of the main dashboard and task management interface.
-
-### Page 2 - Task List
-![Task List View](img/page_2.png)
-Comprehensive task list with filtering and sorting capabilities.
-
-### Page 3 - Task Details
-![Task Details](img/page_3.png)
-Detailed view of a single task with all information and actions.
-
-### Page 4 - User Management
-![User Management](img/page_4.png)
-Admin panel for managing users and their roles.
-
-### Page 5 - Authentication
-![Login/Signup Interface](img/page_5.png)
-Secure authentication interface for login and registration.
-
-### Page 6 - Profile & Settings
-![User Profile](img/page_6.png)
-User profile management and settings page.
-
 ## ▶️ Running the Application
 
 ### Start Backend Services
