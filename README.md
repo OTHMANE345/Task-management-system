@@ -17,7 +17,6 @@ A comprehensive full-stack task management application built with **Spring Boot 
 - **User Authentication & Authorization**: Secure login and signup with JWT tokens
 - **Role-Based Access Control**: Different permissions for Admin and User roles
 - **Task Management**: Create, read, update, and delete tasks
-- **Task Filtering**: Filter tasks by status, priority, and assignment
 - **User Management**: Admin panel to manage users
 - **File Upload**: Custom image upload functionality
 - **Responsive UI**: Mobile-friendly Angular interface
